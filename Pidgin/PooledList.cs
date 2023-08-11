@@ -291,7 +291,6 @@ public struct PooledList<T> : IDisposable, IList<T>
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    [MemberNotNull(nameof(_arrayPool), nameof(_items))]
     private void GrowIfNecessary(int additionalSpace)
     {
         if (_arrayPool == null)
@@ -309,7 +308,6 @@ public struct PooledList<T> : IDisposable, IList<T>
         }
     }
 
-    [MemberNotNull(nameof(_items))]
     private void Init(int space)
     {
         _items = _arrayPool.Rent(Math.Max(InitialCapacity, space));

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>netstandard2.1</TargetFramework>
         <CheckEolTargetFramework>false</CheckEolTargetFramework>
         <LangVersion>10</LangVersion>
         <IsAotCompatible>true</IsAotCompatible>
@@ -20,6 +20,10 @@
 
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Collections.Immutable" />
     </ItemGroup>
 
 </Project>

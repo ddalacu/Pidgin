@@ -13,7 +13,7 @@ public static partial class Parser
     public static Parser<char, TEnum> Enum<TEnum>()
         where TEnum : struct, Enum
     {
-        return OneOf(System.Enum.GetNames<TEnum>()
+        return OneOf(System.Enum.GetNames(typeof(TEnum))
                 .Select(String)
                 .Select(Try))
             .Select(System.Enum.Parse<TEnum>)
@@ -28,7 +28,7 @@ public static partial class Parser
     public static Parser<char, TEnum> CIEnum<TEnum>()
         where TEnum : struct, Enum
     {
-        return OneOf(System.Enum.GetNames<TEnum>()
+        return OneOf(System.Enum.GetNames(typeof(TEnum))
                 .Select(CIString)
                 .Select(Try))
             .Select(x => System.Enum.Parse<TEnum>(x, true))

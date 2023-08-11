@@ -157,7 +157,7 @@ public abstract partial class Parser<TToken, T>
 
     private struct ListChainer : IChainer<T, IEnumerable<T>>
     {
-        private readonly List<T> List { get; init; }
+        private List<T> List { get; set; }
 
         public void Apply(T value)
         {
